@@ -40,7 +40,7 @@ gem 'bcrypt'
 gem 'carrierwave'
 
 # AWS S3 用
-
+gem 'aws-sdk-s3'
 gem 'fog-aws'
 gem 'fog'
 
