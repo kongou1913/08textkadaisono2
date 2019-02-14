@@ -11,7 +11,9 @@ CarrierWave.configure do |config|
   config.remove_previously_stored_files_after_update = false
 
   config.fog_directory = ENV['AWS_S3_BUCKET']
-  config.asset_host = ENV['AWS_S3_URL']
+  if ImageUploader::storage == :fog
+    config.asset_host = ENV['AWS_S3_URL']
+  end
 
 end
 # 文字化け対策
