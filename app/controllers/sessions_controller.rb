@@ -4,11 +4,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: email_params)
+    user = User.find_by(email: params[:session][:email])
 #binding pry#debug
-    if user && user.authenticate(password_params)
-      log_in(user)
-      redirect_to topics_path, success: 'ログインに成功しました'
+    if user && user.authenticate(params[:session][:password])
+      log_in user
+      redirect_to root_path, success: 'ログインに成功しました'
     else
       flash.now[:danger] = 'ログインに失敗しました'
       render :new

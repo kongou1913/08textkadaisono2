@@ -6,8 +6,10 @@ class User < ApplicationRecord
   PW_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,32}\z/i
   validates :password, presence: true, format: { with: PW_REGEX }
 
+  has_secure_password
+
   has_many :topics
   has_many :favorites
   has_many :favorite_topics, through: :favorites, source: 'topic'
-  has_many :p_comment
+  has_many :comments
 end

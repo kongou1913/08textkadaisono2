@@ -1,5 +1,8 @@
 class TopicsController < ApplicationController
   def new
+    if !logged_in?
+      redirect_to login_path
+    end
     @topic = Topic.new
   end
 
