@@ -5,6 +5,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   #require_relative 'config/initializers/carrierwave'
   #require_relative 'config/initializers/database'
 
+  def size_range
+    1..10.megabytes
+  end
+
+  def extension_white_list
+    %w(jpg jpeg png)
+  end
+  
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
