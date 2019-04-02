@@ -35,9 +35,17 @@
                 <% end %>
               </li>
             </ul>
+            <h3>Comments</h3>
             <p class="topic-text">
               <%= topic.user.name + '：' + topic.description %>
             </p>
+            <ul>
+              <% topic.comments.each do |comment| %>
+              <li>
+                <%= comment.lines %>
+              </li>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
